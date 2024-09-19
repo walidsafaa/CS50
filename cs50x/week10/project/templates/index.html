@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Age Calculator
+{% endblock %}
+
+{% block head %}
+<li class="nav-item">
+  <a class="nav-link active" aria-current="page" href="/">Age Calculator</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/duration">Time Duration Calculator</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/tracker">Time Tracker</a>
+</li>
+{% endblock %}
+
+{% block main %}
+    <head>
+    <h2>Age Calculator</h2>
+    <p></p>
+    <form action="/" method="POST">
+        <div class="mb-3">
+            <label for="birthday">Birthdate:</label>
+            <input type="date" id="birthday" name="birthday">
+        </div>
+        <button class="btn btn-primary" type="submit">Calculate</button>
+    </form>
+    <p></p>
+    <div class="parent container d-flex justify-content-center align-items-center h-100">
+        <div class="child">
+            {% if session["birthday"] %}
+            <h3>Your age is <h1>{{age}}</h1></h3>
+            {% endif %}
+        </div>
+    </div>
+    <p></p>
+    <div class="position: relative">
+        {% if session["birthday"] %}
+            <p style="position: relative">NOTE: Check out the 'Time Tracker' tab to know about the remaining time to your next birthday.</p>
+            {% endif %}
+    </div>
+
+
+{% endblock %}

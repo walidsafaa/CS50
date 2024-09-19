@@ -1,0 +1,5 @@
+If songs.db contains the top 100 songs of one listener from 2018, how would you characterize their audio aura?
+I will write queries to find me the average energy, valence, and danceability of a person’s top 100 songs from 2018.
+
+ What better ways of calculating this aura would you propose?
+ I would track how many times s/he listens to each song

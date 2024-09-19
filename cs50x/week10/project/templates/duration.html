@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Time Duration Calculator
+{% endblock %}
+
+{% block head %}
+<li class="nav-item">
+  <a class="nav-link" href="/">Age Calculator</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link active" aria-current="page" href="/duration">Time Duration Calculator</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="/tracker">Time Tracker</a>
+</li>
+
+{% endblock %}
+
+{% block main %}
+    <h2>Time Duration Calculator</h2>
+    <p></p>
+    <form action="/duration" method="POST">
+        <div class="mb-3">
+            <label for="start">Start Date:</label>
+            <input type="date" id="start" name="start">
+        </div>
+        <div class="mb-3">
+            <label for="end">End Date:</label>
+            <input type="date" id="end" name="end">
+        </div>
+        <button class="btn btn-primary" type="submit">Calculate</button>
+    </form>
+    <p></p>
+    {% if session["duration"] %}
+    <div class="parent container d-flex justify-content-center align-items-center h-100">
+        <div class="child">
+
+            <h3>The difference is
+                {% if years > 1 %}<h1>{{years}} Years</h1>{% endif %}
+                {% if years == 1 %}<h1>{{years}} Year</h1>{% endif %}
+
+                {% if months > 1 %}<h1>{{months}} Months</h1>{% endif %}
+                {% if months == 1 %}<h1>{{months}} Month</h1>{% endif %}
+
+                {% if weeks > 1 %}<h1>{{weeks}} Weeks</h1>{% endif %}
+                {% if weeks == 1 %}<h1>{{weeks}} Week</h1>{% endif %}
+
+                {% if days > 1 %}<h1>{{days}} Days</h1>{% endif %}
+                {% if days == 1 %}<h1>{{days}} Day</h1>{% endif %}
+            </h3>
+
+        </div>
+    </div>
+    {% endif %}
+
+
+{% endblock %}

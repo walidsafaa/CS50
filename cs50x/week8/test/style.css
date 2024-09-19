@@ -1,0 +1,36 @@
+body
+{
+    text-align: center;
+}
+.large
+{
+    font-size: large;
+}
+.medium
+{
+    font-size: large;
+}
+.small
+{
+    font-size: small;
+}
+m
+{
+    color: green;
+}
+.center
+{
+    text-align: center;
+}
+.left
+{
+    text-align: left;
+}
+.right
+{
+    text-align: right;
+}
+#main
+{
+    background-color: black;
+}

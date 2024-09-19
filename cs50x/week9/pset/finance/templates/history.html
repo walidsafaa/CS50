@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Price</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Datetime</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {%  for row in log %}
+            <tr>
+
+                {% if row.shares > 0: %}
+                    <td>Bought</td>
+                {% else %}
+                    <td>Sold</td>
+                {% endif %}
+
+                <td>{{row.symbol}}</td>
+                <td>{{row.price}}</td>
+                <td>{{row.shares}}</td>
+                <td>{{row.amount}}</td>
+                <td>{{row.datetime}}</td>
+            </tr>
+            {% endfor %}
+
+
+        </tbody>
+
+    </table>
+    <h3>{{text}}</h3>
+{% endblock %}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function() {
+                let correct = document.querySelector('.correct')
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector("#p1").innerHTML = "Correct!";
+                })
+
+                // When incorrect answer is clicked
+                let incorrect = document.querySelectorAll(".incorrect");
+                for (let i = 0; i < incorrect.length; i++) {
+                    incorrect[i].addEventListener("click", function(){
+                        incorrect[i].style.backgroundColor="red";
+                        document.querySelector("#p1").innerHTML = "Incorrect!";
+                    })
+                }
+            });
+
+
+
+            function check()
+            {
+                let answer = document.querySelector('#answer');
+                let check2 = document.querySelector('#p2');
+                if (answer.value == 'Egypt')
+                {
+                    check2.innerHTML = 'Correct!';
+                    answer.style.backgroundColor = 'green';
+                }
+                else if (answer == 'egypt')
+                {
+                    check2.innerHTML = 'Correct!';
+                    answer.style.backgroundColor = 'green';
+                }
+                else
+                {
+                    check2.innerHTML = 'Incorrect!';
+                    answer.style.backgroundColor = 'red';
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                    <h3>Who won World Cup 2022?</h3>
+                    <button type="text" class="correct">Argentine</button>
+                    <button type="text" class="incorrect">France</button>
+                    <button type="text" class="incorrect">Portugal</button>
+                    <button type="text" class="incorrect">Spain</button>
+                    <p id="p1"></p>
+
+            </div>
+
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>Where is the pyramids of Giza?</h3>
+                <form onsubmit="check(); return false">
+                    <input autocomplete="off" autofocus id="answer" placeholder="Country" type="text">
+                    <button type="submit">Check Answer</button>
+                </form>
+                <p id="p2"></p>
+
+
+            </div>
+        </div>
+    </body>
+</html>
